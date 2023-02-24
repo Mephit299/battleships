@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d9732aff-6d6a-47b6-8d37-47393c3654c5" name="Changes" comment="We need white squers">
+    <list default="true" id="d9732aff-6d6a-47b6-8d37-47393c3654c5" name="Changes" comment="Further develoment of enemy forcese is requierd">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grid.java" afterDir="false" />
     </list>
@@ -65,7 +65,13 @@
       <option name="presentableId" value="LOCAL−00001" />
       <updated>1676383641424</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL−00002" summary="Further develoment of enemy forcese is requierd">
+      <created>1676628280895</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1676628280895</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -81,6 +87,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="We need white squers" />
-    <option name="LAST_COMMIT_MESSAGE" value="We need white squers" />
+    <MESSAGE value="Further develoment of enemy forcese is requierd" />
+    <option name="LAST_COMMIT_MESSAGE" value="Further develoment of enemy forcese is requierd" />
   </component>
 </project>

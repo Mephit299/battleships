@@ -8,8 +8,8 @@ public class grid extends Canvas implements Runnable{
 
     private int gridY = 0;
     private int gridX = 0;
-    private String[] shipY;
-    private String[] shipX;
+    private int[] shipY = new int[17];
+    private int[] shipX = new int[17];
     private int rectY = 0;
     private int rectX = 0;
     private int mouseX = 0;
@@ -27,8 +27,6 @@ public class grid extends Canvas implements Runnable{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-        shipY = new String[17];
-        shipX = new String[17];
         int lenght5X = (int)(Math.random()*(10));
         int lenght5Y = (int)(Math.random()*(10));
         int lenght4X = (int)(Math.random()*(10));
@@ -50,24 +48,24 @@ public class grid extends Canvas implements Runnable{
             if (direction ==1 && check5 ==0)
                 if (lenght5X >= 5){
                     for (int z = 0; z<5; z++){
-                        shipX[z] = String.valueOf((lenght5X-z));
-                        shipY[z] = String.valueOf(lenght5Y);
+                        shipX[z] = lenght5X-z;
+                        shipY[z] = lenght5Y;
                         check5 = 1;
                     }
                 }
             else if (direction == 2 && check5 ==0) {
                     if (lenght5Y >= 5) {
                         for (int z = 0; z < 5; z++) {
-                            shipY[z] = String.valueOf((lenght5Y - z));
-                            shipX[z] = String.valueOf(lenght5X);
+                            shipX[z] = lenght5X;
+                            shipY[z] = lenght5Y - z;
                             check5 = 1;
                         }
                     }
                 } else if (direction == 3 && check5 ==0) {
                     if (lenght5X <= 6) {
                         for (int z = 0; z < 5; z++) {
-                            shipX[z] = String.valueOf((lenght5X - z));
-                            shipY[z] = String.valueOf(lenght5Y);
+                            shipX[z] = lenght5X + z;
+                            shipY[z] = lenght5Y;
                             check5 = 1;
                         }
                     }
@@ -76,12 +74,14 @@ public class grid extends Canvas implements Runnable{
             else if (direction == 4 && check5 ==0){
                     if (lenght5Y <= 6) {
                         for (int z = 0; z < 5; z++) {
-                            shipY[z] = String.valueOf((lenght5Y - z));
-                            shipX[z] = String.valueOf(lenght5X);
+                            shipX[z] = lenght5X;
+                            shipY[z] = lenght5Y + z;
                             check5 = 1;
                         }
                     }
                 }
+            shipX[9] = 9;
+            shipY[9] = 9;
             if (check5 ==1)
                 break;
 
@@ -111,12 +111,18 @@ public class grid extends Canvas implements Runnable{
     }
 
     public void draw(Graphics g) {
-        g.setColor(new Color(0xFFFFFF));
+        String control = "false";
         if (rectX != 0 && rectX <550 && rectY < 550) {
             for (int z = 0; z<17; z++)
-                if (shipX[z] == String.valueOf(gridX) && shipY[z] == String.valueOf(gridY))
+                if (shipX[z] == gridX && shipY[z] == gridY) {
                     g.setColor(new Color(0xFF0000));
-            g.fillRect(rectX, rectY, 40, 40);
+                    g.fillRect(rectX, rectY, 40, 40);
+                    control = "true";
+                }
+            if (!control.equals("true")) {
+                g.setColor(new Color(0xFFFFFF));
+                g.fillRect(rectX, rectY, 40, 40);
+            }
         }
     }
 
