@@ -14,3 +14,8 @@
 # 2023-02-17
 * Gjorde så när jag tryckte på mina blå rutor blev dom vita.
 * Började med koden för att Slumpa fram vart det ska blir röda rutor istället för vita.
+
+# 2023-02-24
+* Fått så att jag plaserar ut 2 skäpp.
+* Allting expolderar och skäpp bara desertar flottan för någon anledning.
+* Fabian tech support 

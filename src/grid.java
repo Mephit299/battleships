@@ -20,10 +20,10 @@ public class grid extends Canvas implements Runnable{
     private BufferStrategy bs;
     public grid() {
         setSize(600,600);
-        JFrame frame = new JFrame("Enkel grafik");
+        JFrame frame = new JFrame("Battleships");
         frame.add(this);
         this.addMouseListener(new MyMouseListener());
-        requestFocus();
+        this.requestFocusInWindow();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
@@ -42,6 +42,10 @@ public class grid extends Canvas implements Runnable{
         int check31 = 0;
         int check32 = 0;
         int check2 = 0;
+        int notOverlap4 = 0;
+        int notOverlap31 = 0;
+        int notOverlap32 = 0;
+        int notOverlap2 = 0;
         int direction = 0;
         while (true){
             direction = (int)(Math.random()*(4));
@@ -71,7 +75,7 @@ public class grid extends Canvas implements Runnable{
                     }
 
                 }
-            else if (direction == 4 && check5 ==0){
+            else if (check5 != 1) {
                     if (lenght5Y <= 6) {
                         for (int z = 0; z < 5; z++) {
                             shipX[z] = lenght5X;
@@ -80,9 +84,69 @@ public class grid extends Canvas implements Runnable{
                         }
                     }
                 }
-            shipX[9] = 9;
-            shipY[9] = 9;
-            if (check5 ==1)
+                else {}
+
+            // NEW SHIP
+
+
+
+            if (direction ==1 && check4 ==0)
+                if (lenght4X >= 5){
+                    notOverlap4 = 0;
+                    for (int z = 0; z<4; z++){
+                        shipX[z+5] = lenght4X-z;
+                        shipY[z+5] = lenght4Y;
+                        if (shipX[0] != shipX[z+5] && shipX[1] != shipX[z+5] && shipX[2] != shipX[z+5] && shipX[3] != shipX[z+5] && shipX[4] != shipX[z+5])
+                            notOverlap4++;
+                        if (notOverlap4 == 4)
+                            check4 = 1;
+                    }
+                }
+                else if (direction == 2 && check4 ==0) {
+                    if (lenght4Y >= 5) {
+                        notOverlap4 = 0;
+                        for (int z = 0; z < 4; z++) {
+                            shipX[z+5] = lenght4X;
+                            shipY[z+5] = lenght4Y - z;
+                            if (shipY[0] != shipY[z+5] && shipY[1] != shipY[z+5] && shipY[2] != shipY[z+5] && shipY[3] != shipY[z+5] && shipY[4] != shipY[z+5])
+                                notOverlap4++;
+                            if (notOverlap4 == 4)
+                                check4 = 1;
+                        }
+                    }
+                } else if (direction == 3 && check4 ==0) {
+                    if (lenght4X <= 6) {
+                        notOverlap4 = 0;
+                        for (int z = 0; z < 4; z++) {
+                            shipX[z+5] = lenght4X + z;
+                            shipY[z+5] = lenght4Y;
+                            if (shipX[0] != shipX[z+5] && shipX[1] != shipX[z+5] && shipX[2] != shipX[z+5] && shipX[3] != shipX[z+5] && shipX[4] != shipX[z+5])
+                                notOverlap4++;
+                            if (notOverlap4 == 4)
+                                check4 = 1;
+                        }
+                    }
+
+                }
+                else if (check4 != 1) {
+                    lenght4Y = (int)(Math.random()*(10));
+                    lenght4X = (int)(Math.random()*(10));
+                    if (lenght4Y <= 6) {
+                        notOverlap4 = 0;
+                        for (int z = 0; z < 4; z++) {
+                            shipX[z + 5] = lenght4X;
+                            shipY[z + 5] = lenght4Y + z;
+                            if (shipY[0] != shipY[z + 5] && shipY[1] != shipY[z + 5] && shipY[2] != shipY[z + 5] && shipY[3] != shipY[z + 5] && shipY[4] != shipY[z + 5])
+                                notOverlap4++;
+                            if (notOverlap4 == 4)
+                                check4 = 1;
+                        }
+                    }
+                }
+                else {}
+
+
+            if (check5 ==1 && check4 == 1)
                 break;
 
 
