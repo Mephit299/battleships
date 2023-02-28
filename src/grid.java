@@ -10,6 +10,7 @@ public class grid extends Canvas implements Runnable{
     private int gridX = 0;
     private int[] shipY = new int[17];
     private int[] shipX = new int[17];
+    // private int[][] a = new int[][]{{1,2},{1,2}};
     private int rectY = 0;
     private int rectX = 0;
     private int mouseX = 0;
@@ -49,12 +50,13 @@ public class grid extends Canvas implements Runnable{
         int direction = 0;
         while (true){
             direction = (int)(Math.random()*(4));
-            if (direction ==1 && check5 ==0)
+            if (direction ==1 && check5 ==0){
                 if (lenght5X >= 5){
-                    for (int z = 0; z<5; z++){
-                        shipX[z] = lenght5X-z;
+                    for (int z = 0; z<5; z++) {
+                        shipX[z] = lenght5X - z;
                         shipY[z] = lenght5Y;
                         check5 = 1;
+                    }
                     }
                 }
             else if (direction == 2 && check5 ==0) {
@@ -65,7 +67,8 @@ public class grid extends Canvas implements Runnable{
                             check5 = 1;
                         }
                     }
-                } else if (direction == 3 && check5 ==0) {
+                }
+            else if (direction == 3 && check5 ==0) {
                     if (lenght5X <= 6) {
                         for (int z = 0; z < 5; z++) {
                             shipX[z] = lenght5X + z;
@@ -73,7 +76,6 @@ public class grid extends Canvas implements Runnable{
                             check5 = 1;
                         }
                     }
-
                 }
             else if (check5 != 1) {
                     if (lenght5Y <= 6) {
@@ -84,74 +86,136 @@ public class grid extends Canvas implements Runnable{
                         }
                     }
                 }
-                else {}
 
             // NEW SHIP
 
+            notOverlap4 = 0;
 
-
-            if (direction ==1 && check4 ==0)
-                if (lenght4X >= 5){
-                    notOverlap4 = 0;
-                    for (int z = 0; z<4; z++){
-                        shipX[z+5] = lenght4X-z;
-                        shipY[z+5] = lenght4Y;
-                        if (shipX[0] != shipX[z+5] && shipX[1] != shipX[z+5] && shipX[2] != shipX[z+5] && shipX[3] != shipX[z+5] && shipX[4] != shipX[z+5])
-                            notOverlap4++;
-                        if (notOverlap4 == 4)
-                            check4 = 1;
+            if (direction ==1 && check4 ==0 && check5 == 1) {
+                if (lenght4X >= 4) {
+                    for (int z = 0; z < 4; z++) {
+                        shipX[z + 5] = lenght4X - z;
+                        shipY[z + 5] = lenght4Y;
+                        notOverlap4 = grid.legalShipPossition(notOverlap4, 5, shipX, shipY, shipX[z + 5], shipY[z + 5]);
                     }
+                    if (notOverlap4 == 0)
+                        check4 = 1;
                 }
-                else if (direction == 2 && check4 ==0) {
-                    if (lenght4Y >= 5) {
-                        notOverlap4 = 0;
+            }
+                else if (direction == 2 && check4 ==0 && check5 == 1) {
+                    if (lenght4Y >= 4) {
                         for (int z = 0; z < 4; z++) {
                             shipX[z+5] = lenght4X;
                             shipY[z+5] = lenght4Y - z;
-                            if (shipY[0] != shipY[z+5] && shipY[1] != shipY[z+5] && shipY[2] != shipY[z+5] && shipY[3] != shipY[z+5] && shipY[4] != shipY[z+5])
-                                notOverlap4++;
-                            if (notOverlap4 == 4)
-                                check4 = 1;
+                            notOverlap4 = grid.legalShipPossition(notOverlap4,5,shipX,shipY,shipX[z+5],shipY[z+5]);
                         }
+                        if (notOverlap4 == 0)
+                            check4 = 1;
                     }
-                } else if (direction == 3 && check4 ==0) {
-                    if (lenght4X <= 6) {
-                        notOverlap4 = 0;
+                }
+                else if (direction == 3 && check4 ==0 && check5 == 1) {
+                    if (lenght4X <= 7) {
                         for (int z = 0; z < 4; z++) {
                             shipX[z+5] = lenght4X + z;
                             shipY[z+5] = lenght4Y;
-                            if (shipX[0] != shipX[z+5] && shipX[1] != shipX[z+5] && shipX[2] != shipX[z+5] && shipX[3] != shipX[z+5] && shipX[4] != shipX[z+5])
-                                notOverlap4++;
-                            if (notOverlap4 == 4)
-                                check4 = 1;
+                            notOverlap4 = grid.legalShipPossition(notOverlap4,5,shipX,shipY,shipX[z+5],shipY[z+5]);
                         }
+                        if (notOverlap4 == 0)
+                            check4 = 1;
                     }
 
                 }
-                else if (check4 != 1) {
+                else if (check4 != 1 && check5 == 1 ) {
                     lenght4Y = (int)(Math.random()*(10));
                     lenght4X = (int)(Math.random()*(10));
-                    if (lenght4Y <= 6) {
-                        notOverlap4 = 0;
+                    if (lenght4Y <= 7) {
                         for (int z = 0; z < 4; z++) {
                             shipX[z + 5] = lenght4X;
                             shipY[z + 5] = lenght4Y + z;
-                            if (shipY[0] != shipY[z + 5] && shipY[1] != shipY[z + 5] && shipY[2] != shipY[z + 5] && shipY[3] != shipY[z + 5] && shipY[4] != shipY[z + 5])
-                                notOverlap4++;
-                            if (notOverlap4 == 4)
-                                check4 = 1;
+                            notOverlap4 = grid.legalShipPossition(notOverlap4,5,shipX,shipY,shipX[z+5],shipY[z+5]);
                         }
+                        if (notOverlap4 == 0)
+                            check4 = 1;
                     }
                 }
-                else {}
 
 
-            if (check5 ==1 && check4 == 1)
+            // NEW SHIP
+
+            notOverlap31 = 0;
+
+            if (direction ==1 && check4 == 1 && check5 == 1 && check31 ==0) {
+                if (lenght3X1 >= 3) {
+                    for (int z = 0; z < 3; z++) {
+                        shipX[z + 9] = lenght3X1 - z;
+                        shipY[z + 9] = lenght3Y1;
+                        notOverlap31 = grid.legalShipPossition(notOverlap31, 9, shipX, shipY, shipX[z + 9], shipY[z + 9]);
+                    }
+                    if (notOverlap31 == 0)
+                        check31 = 1;
+                }
+            }
+                else if (direction == 2 && check4 == 1 && check5 == 1 && check31 ==0) {
+                    if (lenght3Y1 >= 3) {
+                        for (int z = 0; z < 3; z++) {
+                            shipX[z+9] = lenght3X1;
+                            shipY[z+9] = lenght3Y1 - z;
+                            notOverlap31 = grid.legalShipPossition(notOverlap31,9,shipX,shipY,shipX[z+9],shipY[z+9]);
+                        }
+                        if (notOverlap31 == 0)
+                            check31 = 1;
+                    }
+                } else if (direction == 3 && check4 == 1 && check5 == 1 && check31 ==0) {
+                    if (lenght3X1 <= 8) {
+                        for (int z = 0; z < 3; z++) {
+                            shipX[z+9] = lenght3X1 + z;
+                            shipY[z+9] = lenght3Y1;
+                            notOverlap31 = grid.legalShipPossition(notOverlap31,9,shipX,shipY,shipX[z+9],shipY[z+9]);
+                        }
+                        if (notOverlap31 == 0)
+                            check31 = 1;
+                    }
+
+                }
+                else if (check4 == 1 && check5 == 1 && check31 !=1) {
+                    lenght3Y1 = (int)(Math.random()*(10));
+                    lenght3X1 = (int)(Math.random()*(10));
+                    if (lenght3Y1 <= 8) {
+                        for (int z = 0; z < 3; z++) {
+                            shipX[z + 9] = lenght3X1;
+                            shipY[z + 9] = lenght3Y1 + z;
+                            notOverlap31 = grid.legalShipPossition(notOverlap31,9,shipX,shipY,shipX[z+9],shipY[z+9]);
+                        }
+                        if (notOverlap31 == 0)
+                            check31 = 1;
+                    }
+                }
+
+            if (check5 ==1 && check4 == 1 && check31 == 1)
                 break;
 
 
             if (check5 == 1 && check4 == 1 && check31 == 1 && check32 == 1 && check2 == 1) break;
         }
+        this.requestFocusInWindow();
+    }
+
+    public static int legalShipPossition(int overLapp, int antalExisterandeSkäppPungter, int[] shipX, int[] shipY, int skäppPositionX, int skäppPositionY){
+        int fun = 0;
+        int bugs = 0;
+        for (int q = 0; q<= antalExisterandeSkäppPungter; q++){
+            fun = 0;
+            bugs = 0;
+            if (shipX[q] != shipX[skäppPositionX])
+                fun++;
+            if (shipY[q] != shipY[skäppPositionY])
+                bugs++;
+
+            if (fun + bugs ==2)
+                overLapp++;
+        }
+        return overLapp;
+
     }
 
 
