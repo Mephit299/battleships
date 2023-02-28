@@ -17,5 +17,12 @@
 
 # 2023-02-24
 * Fått så att jag plaserar ut 2 skäpp.
-* Allting expolderar och skäpp bara desertar flottan för någon anledning.
+* Allting exploderar och skäpp bara deserter flottan för någon anledning.
 * Fabian tech support 
+
+# 2023-02-28
+* Everything that can go wrong is going wrong.
+* bugfixing for more bugs
+* failure in bug eradication
+* depression 
+* Fabian tech support++

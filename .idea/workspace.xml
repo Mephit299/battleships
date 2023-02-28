@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d9732aff-6d6a-47b6-8d37-47393c3654c5" name="Changes" comment="A battleship is now in service.">
+    <list default="true" id="d9732aff-6d6a-47b6-8d37-47393c3654c5" name="Changes" comment="Everything is exploding">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grid.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +84,13 @@
       <option name="presentableId" value="LOCAL−00004" />
       <updated>1677233977486</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL−00005" summary="Everything is exploding">
+      <created>1677591860424</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1677591860424</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -101,7 +108,8 @@
     <MESSAGE value="We need white squers" />
     <MESSAGE value="Further develoment of enemy forcese is requierd" />
     <MESSAGE value="A battleship is now in service." />
-    <option name="LAST_COMMIT_MESSAGE" value="A battleship is now in service." />
+    <MESSAGE value="Everything is exploding" />
+    <option name="LAST_COMMIT_MESSAGE" value="Everything is exploding" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -114,7 +122,7 @@
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/grid.java</url>
           <line>146</line>
-          <option name="timeStamp" value="40" />
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

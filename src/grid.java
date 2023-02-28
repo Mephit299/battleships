@@ -206,9 +206,9 @@ public class grid extends Canvas implements Runnable{
         for (int q = 0; q<= antalExisterandeSkäppPungter; q++){
             fun = 0;
             bugs = 0;
-            if (shipX[q] != shipX[skäppPositionX])
+            if (shipX[q] == shipX[skäppPositionX])
                 fun++;
-            if (shipY[q] != shipY[skäppPositionY])
+            if (shipY[q] == shipY[skäppPositionY])
                 bugs++;
 
             if (fun + bugs ==2)
