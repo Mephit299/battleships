@@ -293,7 +293,7 @@ public class grid extends Canvas implements Runnable{
                     for (int z = 0; z < 2; z++) {
                         shipX[z + 15] = lenght2X;
                         shipY[z + 15] = lenght2Y + z;
-                        notOverlap2 = grid.legalShipPossition(notOverlap2,15,shipX,shipY,shipX[z+15],shipY[z+15]);
+                        notOverlap2 = grid.legalShipPossition(notOverlap2,15,shipX,shipY,lenght2X,lenght2Y + z);
                     }
                     if (notOverlap2 == 0)
                         check2 = 1;
@@ -308,12 +308,12 @@ public class grid extends Canvas implements Runnable{
     public static int legalShipPossition(int overLapp, int antalExisterandeSkäppPungter, int[] shipX, int[] shipY, int skäppPositionX, int skäppPositionY){
         int fun;
         int bugs;
-        for (int q = 0; q<= antalExisterandeSkäppPungter; q++){
+        for (int q = 0; q != antalExisterandeSkäppPungter; q++){
             fun = 0;
             bugs = 0;
-            if (shipX[q] == shipX[skäppPositionX])
+            if (shipX[q] == skäppPositionX)
                 fun++;
-            if (shipY[q] == shipY[skäppPositionY])
+            if (shipY[q] == skäppPositionY)
                 bugs++;
 
             if (fun + bugs == 2)
@@ -372,14 +372,14 @@ public class grid extends Canvas implements Runnable{
             y+=50;
             x=l;
         }
- //       for (int bugfxing = 0; bugfxing<17; bugfxing++){
-   //         g.setColor(new Color(0xFF0000));
-     //       int debugging = shipX[bugfxing] * 50 ;
-       //     int funbugs = shipY[bugfxing] * 50 ;
+    //    for (int bugfxing = 0; bugfxing<17; bugfxing++){
+      //      g.setColor(new Color(0xFF0000));
+        //    int debugging = shipX[bugfxing] * 50 ;
+          //  int funbugs = shipY[bugfxing] * 50 ;
 
 
-         //   g.fillRect(debugging, funbugs, 40, 40);
-     //   }
+            //g.fillRect(debugging, funbugs, 40, 40);
+    //    }
     }
     private void update() {
         rectX = 0;

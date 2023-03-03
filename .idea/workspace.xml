@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d9732aff-6d6a-47b6-8d37-47393c3654c5" name="Changes" comment="We have all 5 shipps relativly opperational">
+    <list default="true" id="d9732aff-6d6a-47b6-8d37-47393c3654c5" name="Changes" comment="Tog bort så att den inte bara visa ship positions">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grid.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +101,13 @@
       <option name="presentableId" value="LOCAL−00007" />
       <updated>1677838254229</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL−00008" summary="Tog bort så att den inte bara visa ship positions">
+      <created>1677847782857</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1677847782857</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -121,7 +128,8 @@
     <MESSAGE value="Everything is exploding" />
     <MESSAGE value="Everything is still exploding" />
     <MESSAGE value="We have all 5 shipps relativly opperational" />
-    <option name="LAST_COMMIT_MESSAGE" value="We have all 5 shipps relativly opperational" />
+    <MESSAGE value="Tog bort så att den inte bara visa ship positions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tog bort så att den inte bara visa ship positions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -130,6 +138,11 @@
           <url>file://$PROJECT_DIR$/src/grid.java</url>
           <line>288</line>
           <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/grid.java</url>
+          <line>310</line>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

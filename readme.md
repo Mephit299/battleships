@@ -32,3 +32,8 @@
 * Jag värkar inte längre fasta i en while(true) loop
 * Skäpp kan överlappa för någon anledning
 * Att ändra hur kontrollen för korsande pungter exploderar programmet mest spektakulärt hittills
+
+# 2023-03-03 / 2
+* Jag tror att det fungerar nu
+* Jag bytte 1 < till ! och är inte frustrerad :)
+* Implemented lärarens förslag av att göra så min kod fungerar som jag vill
