@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d9732aff-6d6a-47b6-8d37-47393c3654c5" name="Changes" comment="Everything is still exploding">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d9732aff-6d6a-47b6-8d37-47393c3654c5" name="Changes" comment="We have all 5 shipps relativly opperational">
       <change beforePath="$PROJECT_DIR$/src/grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grid.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,7 +94,13 @@
       <option name="presentableId" value="LOCAL−00006" />
       <updated>1677593379440</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL−00007" summary="We have all 5 shipps relativly opperational">
+      <created>1677838254229</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1677838254229</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -115,7 +120,8 @@
     <MESSAGE value="A battleship is now in service." />
     <MESSAGE value="Everything is exploding" />
     <MESSAGE value="Everything is still exploding" />
-    <option name="LAST_COMMIT_MESSAGE" value="Everything is still exploding" />
+    <MESSAGE value="We have all 5 shipps relativly opperational" />
+    <option name="LAST_COMMIT_MESSAGE" value="We have all 5 shipps relativly opperational" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

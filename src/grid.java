@@ -372,14 +372,14 @@ public class grid extends Canvas implements Runnable{
             y+=50;
             x=l;
         }
-        for (int bugfxing = 0; bugfxing<17; bugfxing++){
-            g.setColor(new Color(0xFF0000));
-            int debugging = shipX[bugfxing] * 50 ;
-            int funbugs = shipY[bugfxing] * 50 ;
+ //       for (int bugfxing = 0; bugfxing<17; bugfxing++){
+   //         g.setColor(new Color(0xFF0000));
+     //       int debugging = shipX[bugfxing] * 50 ;
+       //     int funbugs = shipY[bugfxing] * 50 ;
 
 
-            g.fillRect(debugging, funbugs, 40, 40);
-        }
+         //   g.fillRect(debugging, funbugs, 40, 40);
+     //   }
     }
     private void update() {
         rectX = 0;
