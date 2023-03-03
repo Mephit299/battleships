@@ -26,3 +26,9 @@
 * failure in bug eradication
 * depression 
 * Fabian tech support++
+
+# 2023-03-03
+* Vi kan nu placera ner alla skäpp
+* Jag värkar inte längre fasta i en while(true) loop
+* Skäpp kan överlappa för någon anledning
+* Att ändra hur kontrollen för korsande pungter exploderar programmet mest spektakulärt hittills

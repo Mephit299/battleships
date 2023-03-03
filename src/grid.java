@@ -28,16 +28,16 @@ public class grid extends Canvas implements Runnable{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-        int lenght5X = (int)(Math.random()*(10));
-        int lenght5Y = (int)(Math.random()*(10));
-        int lenght4X = (int)(Math.random()*(10));
-        int lenght4Y = (int)(Math.random()*(10));
-        int lenght3X1 = (int)(Math.random()*(10));
-        int lenght3Y1 = (int)(Math.random()*(10));
-        int lenght3X2 = (int)(Math.random()*(10));
-        int lenght3Y2 = (int)(Math.random()*(10));
-        int lenght2X = (int)(Math.random()*(10));
-        int lenght2Y = (int)(Math.random()*(10));
+        int lenght5X = (int)(Math.random()*(9))+1;
+        int lenght5Y = (int)(Math.random()*(9))+1;
+        int lenght4X = (int)(Math.random()*(9))+1;
+        int lenght4Y = (int)(Math.random()*(9))+1;
+        int lenght3X1 = (int)(Math.random()*(9))+1;
+        int lenght3Y1 = (int)(Math.random()*(9))+1;
+        int lenght3X2 = (int)(Math.random()*(9))+1;
+        int lenght3Y2 = (int)(Math.random()*(9))+1;
+        int lenght2X = (int)(Math.random()*(9))+1;
+        int lenght2Y = (int)(Math.random()*(9))+1;
         int check5 = 0;
         int check4 = 0;
         int check31 = 0;
@@ -49,7 +49,7 @@ public class grid extends Canvas implements Runnable{
         int notOverlap2 = 0;
         int direction = 0;
         while (true){
-            direction = (int)(Math.random()*(4));
+            direction = (int)(Math.random()*(4))+1;
             if (direction ==1 && check5 ==0){
                 if (lenght5X >= 5){
                     for (int z = 0; z<5; z++) {
@@ -126,8 +126,8 @@ public class grid extends Canvas implements Runnable{
 
                 }
                 else if (check4 != 1 && check5 == 1 ) {
-                    lenght4Y = (int)(Math.random()*(10));
-                    lenght4X = (int)(Math.random()*(10));
+                    lenght4Y = (int)(Math.random()*(10))+1;
+                    lenght4X = (int)(Math.random()*(10))+1;
                     if (lenght4Y <= 7) {
                         for (int z = 0; z < 4; z++) {
                             shipX[z + 5] = lenght4X;
@@ -165,7 +165,8 @@ public class grid extends Canvas implements Runnable{
                         if (notOverlap31 == 0)
                             check31 = 1;
                     }
-                } else if (direction == 3 && check4 == 1 && check5 == 1 && check31 ==0) {
+                }
+                else if (direction == 3 && check4 == 1 && check5 == 1 && check31 ==0) {
                     if (lenght3X1 <= 8) {
                         for (int z = 0; z < 3; z++) {
                             shipX[z+9] = lenght3X1 + z;
@@ -178,8 +179,8 @@ public class grid extends Canvas implements Runnable{
 
                 }
                 else if (check4 == 1 && check5 == 1 && check31 !=1) {
-                    lenght3Y1 = (int)(Math.random()*(10));
-                    lenght3X1 = (int)(Math.random()*(10));
+                    lenght3Y1 = (int)(Math.random()*(9))+1;
+                    lenght3X1 = (int)(Math.random()*(9))+1;
                     if (lenght3Y1 <= 8) {
                         for (int z = 0; z < 3; z++) {
                             shipX[z + 9] = lenght3X1;
@@ -191,9 +192,113 @@ public class grid extends Canvas implements Runnable{
                     }
                 }
 
-            if (check5 ==1 && check4 == 1 && check31 == 1)
-                break;
 
+
+            // NEW SHIP
+
+            notOverlap32 = 0;
+
+            if (direction ==1 && check4 == 1 && check5 == 1 && check31 == 1 && check32 == 0) {
+                if (lenght3X2 >= 3) {
+                    for (int z = 0; z < 3; z++) {
+                        shipX[z + 12] = lenght3X2 - z;
+                        shipY[z + 12] = lenght3Y2;
+                        notOverlap32 = grid.legalShipPossition(notOverlap32, 12, shipX, shipY, shipX[z + 12], shipY[z + 12]);
+                    }
+                    if (notOverlap32 == 0)
+                        check32 = 1;
+                }
+            }
+            else if (direction == 2 && check4 == 1 && check5 == 1 && check31 == 1 && check32 == 0) {
+                if (lenght3Y2 >= 3) {
+                    for (int z = 0; z < 3; z++) {
+                        shipX[z+12] = lenght3X2;
+                        shipY[z+12] = lenght3Y2 - z;
+                        notOverlap32 = grid.legalShipPossition(notOverlap32,12,shipX,shipY,shipX[z+12],shipY[z+12]);
+                    }
+                    if (notOverlap32 == 0)
+                        check32 = 1;
+                }
+            }
+            else if (direction == 3 && check4 == 1 && check5 == 1 && check31 == 1 && check32 == 0) {
+                if (lenght3X2 <= 8) {
+                    for (int z = 0; z < 3; z++) {
+                        shipX[z+12] = lenght3X2 + z;
+                        shipY[z+12] = lenght3Y2;
+                        notOverlap32 = grid.legalShipPossition(notOverlap32,12,shipX,shipY,shipX[z+12],shipY[z+12]);
+                    }
+                    if (notOverlap32 == 0)
+                        check32 = 1;
+                }
+
+            }
+            else if (check4 == 1 && check5 == 1 && check31 == 1 && check32 !=1) {
+                lenght3Y2 = (int)(Math.random()*(9))+1;
+                lenght3X2 = (int)(Math.random()*(9))+1;
+                if (lenght3Y2 <= 8) {
+                    for (int z = 0; z < 3; z++) {
+                        shipX[z + 12] = lenght3X2;
+                        shipY[z + 12] = lenght3Y2 + z;
+                        notOverlap32 = grid.legalShipPossition(notOverlap32,12,shipX,shipY,shipX[z+12],shipY[z+12]);
+                    }
+                    if (notOverlap32 == 0)
+                        check32 = 1;
+                }
+            }
+
+
+
+            // NEW SHIP
+
+            notOverlap2 = 0;
+
+            if (direction ==1 && check4 == 1 && check5 == 1 && check31 == 1 && check32 == 1 && check2 == 0) {
+                if (lenght2X >= 2) {
+                    for (int z = 0; z < 2; z++) {
+                        shipX[z + 15] = lenght2X - z;
+                        shipY[z + 15] = lenght2Y;
+                        notOverlap2 = grid.legalShipPossition(notOverlap2, 15, shipX, shipY, shipX[z + 15], shipY[z + 15]);
+                    }
+                    if (notOverlap2 == 0)
+                        check2 = 1;
+                }
+            }
+            else if (direction == 2 && check4 == 1 && check5 == 1 && check31 == 1 && check32 == 1 && check2 == 0) {
+                if (lenght2Y >= 2) {
+                    for (int z = 0; z < 2; z++) {
+                        shipX[z+15] = lenght2X;
+                        shipY[z+15] = lenght2Y - z;
+                        notOverlap2 = grid.legalShipPossition(notOverlap2,15,shipX,shipY,shipX[z+15],shipY[z+15]);
+                    }
+                    if (notOverlap2 == 0)
+                        check2 = 1;
+                }
+            }
+            else if (direction == 3 && check4 == 1 && check5 == 1 && check31 == 1 && check32 == 1 && check2 == 0) {
+                if (lenght2X <= 9) {
+                    for (int z = 0; z < 2; z++) {
+                        shipX[z+15] = lenght2X + z;
+                        shipY[z+15] = lenght2Y;
+                        notOverlap2 = grid.legalShipPossition(notOverlap2,15,shipX,shipY,shipX[z+15],shipY[z+15]);
+                    }
+                    if (notOverlap2 == 0)
+                        check2 = 1;
+                }
+
+            }
+            else if (check4 == 1 && check5 == 1 && check31 == 1 && check32 == 1 && check2 !=1) {
+                lenght2Y = (int)(Math.random()*(9))+1;
+                lenght2X = (int)(Math.random()*(9))+1;
+                if (lenght2Y <= 9) {
+                    for (int z = 0; z < 2; z++) {
+                        shipX[z + 15] = lenght2X;
+                        shipY[z + 15] = lenght2Y + z;
+                        notOverlap2 = grid.legalShipPossition(notOverlap2,15,shipX,shipY,shipX[z+15],shipY[z+15]);
+                    }
+                    if (notOverlap2 == 0)
+                        check2 = 1;
+                }
+            }
 
             if (check5 == 1 && check4 == 1 && check31 == 1 && check32 == 1 && check2 == 1) break;
         }
@@ -201,8 +306,8 @@ public class grid extends Canvas implements Runnable{
     }
 
     public static int legalShipPossition(int overLapp, int antalExisterandeSkäppPungter, int[] shipX, int[] shipY, int skäppPositionX, int skäppPositionY){
-        int fun = 0;
-        int bugs = 0;
+        int fun;
+        int bugs;
         for (int q = 0; q<= antalExisterandeSkäppPungter; q++){
             fun = 0;
             bugs = 0;
@@ -211,7 +316,7 @@ public class grid extends Canvas implements Runnable{
             if (shipY[q] == shipY[skäppPositionY])
                 bugs++;
 
-            if (fun + bugs ==2)
+            if (fun + bugs == 2)
                 overLapp++;
         }
         return overLapp;
@@ -266,6 +371,14 @@ public class grid extends Canvas implements Runnable{
             }
             y+=50;
             x=l;
+        }
+        for (int bugfxing = 0; bugfxing<17; bugfxing++){
+            g.setColor(new Color(0xFF0000));
+            int debugging = shipX[bugfxing] * 50 ;
+            int funbugs = shipY[bugfxing] * 50 ;
+
+
+            g.fillRect(debugging, funbugs, 40, 40);
         }
     }
     private void update() {
